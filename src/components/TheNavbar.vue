@@ -4,6 +4,7 @@ nav.global-navbar
     src="@/assets/images/logo.svg"
     alt="DirectoryTree Editor"
   )
+  button.copy(@click="$emit('copy')") Copy
   .version v{{version}}
 </template>
 
@@ -33,6 +34,22 @@ export default class TheNavbar extends Vue {
     display: block
     height: 20px
     margin-right: auto
+
+  & > .copy
+    padding: 4px 10px
+    margin-right: 18px
+    opacity: .6
+    font-family: Fira Code, monospace
+    font-size: 14px
+    color: $_text-white
+    cursor: pointer
+    background: none
+    border: 1px solid rgba($_text-white, .5)
+    border-radius: 4px
+    transition: opacity .2s ease
+
+  & > .copy:hover
+    opacity: 1
 
   & > .version
     font-family: Fira Code, monospace

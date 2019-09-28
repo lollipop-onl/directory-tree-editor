@@ -117,5 +117,6 @@ export default class AppEditor extends Vue {
     font-family: Fira Code, monospace
     font-size: 14px
     line-height: 1.5
+    background: #eee
     resize: none
 </style>

@@ -1,11 +1,5 @@
 <template lang="pug">
-.default-layout
-  TheNavbar(
-    :version="version"
-  )
-  .content
-    nuxt
-  TheFooter
+nuxt
 </template>
 
 <script lang="ts">
@@ -15,18 +9,8 @@ import { version } from '../../package.json';
 import TheNavbar from '@/components/TheNavbar.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-@Component({
-  components: {
-    TheNavbar,
-    TheFooter
-  }
-})
+@Component
 export default class DefaultLayout extends Vue {
-  /** パッケージバージョン */
-  get version() {
-    return version;
-  }
-
   /** ライフサイクル */
   beforeMount(): void {
     this.updateVh();
@@ -56,15 +40,4 @@ export default class DefaultLayout extends Vue {
 }
 </script>
 
-<style lang="sass" scoped>
-.default-layout
-  &
-    display: flex
-    flex-direction: column
-    min-height: 100vh
-    min-height: calc(var(--vh, 1vh) * 100)
-    overflow: hidden
-
-  & > .content
-    flex-grow: 1
-</style>
+<style lang="sass" scoped></style>

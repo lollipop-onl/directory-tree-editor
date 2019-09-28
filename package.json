@@ -6,12 +6,13 @@
   "author": "tamuraryoya <tamuraryoya@team-lab.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nuxt-ts dev",
+    "dev": "nuxt-ts dev --spa",
     "build": "nuxt-ts generate"
   },
   "devDependencies": {
     "@nuxt/typescript-runtime": "^0.1.7",
     "@team-lab/eslint-config": "^0.1.1",
+    "@types/qs": "^6.5.3",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^6.4.0",
@@ -29,6 +30,7 @@
     "nuxt": "^2.9.2",
     "nuxt-property-decorator": "^2.4.0",
     "pug": "^2.0.4",
+    "qs": "^6.9.0",
     "reset.css": "^2.0.2"
   }
 }
