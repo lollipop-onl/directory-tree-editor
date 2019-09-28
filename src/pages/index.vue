@@ -56,6 +56,8 @@ export default class IndexPage extends Vue {
 
   /** クエリのソース */
   get querySourceValue() {
+    if (!process.client) return '';
+
     const query = location.search.replace(/^\?/, '');
     const { source } = qs.parse(query);
     const sourceValue = Array.isArray(source) ? source[0] : source;
