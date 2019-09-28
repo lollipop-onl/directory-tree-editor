@@ -21,7 +21,10 @@ const config: Configuration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { name: 'description', content: 'Powered by lollipop.onl' },
-      { name: 'og:image', content: 'http://tree.tools.lollipop.onl/ogp.jpg' }
+      { name: 'og:image', content: 'http://tree.tools.lollipop.onl/ogp.jpg' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:site', content: '@lollipop_onl' },
+      { name: 'twitter:image', content: 'http://tree.tools.lollipop.onl/ogp.jpg' },
     ],
     title: 'DirectoryTree Editor'
   },
