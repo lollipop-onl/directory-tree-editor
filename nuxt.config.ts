@@ -13,6 +13,11 @@ const config: Configuration = {
   },
   buildModules: ['@nuxt/typescript-build'],
   css: ['reset.css'],
+  head: {
+    link: [
+      { rel: 'stylesheet', href: '//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css' }
+    ]
+  },
   mode: 'universal',
   srcDir: 'src',
   generate: {

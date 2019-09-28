@@ -35,6 +35,7 @@ export default class TheNavbar extends Vue {
     margin-right: auto
 
   & > .version
+    font-family: Fira Code, monospace
     font-size: 14px
-    color: $_text-white
+    color: rgba($_text-white, .8)
 </style>
