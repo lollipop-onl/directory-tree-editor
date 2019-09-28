@@ -5,7 +5,7 @@ pages:
   before_script:
     - npm i
   script:
-    - npm run buid
+    - npm run build
     - mkdir public
     - mv dist/* public
   artifacts:
