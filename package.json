@@ -1,0 +1,8 @@
+{
+  "name": "directory-tree-editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.com:lollipop.onl/directory-tree-editor.git",
+  "author": "tamuraryoya <tamuraryoya@team-lab.com>",
+  "license": "MIT"
+}
