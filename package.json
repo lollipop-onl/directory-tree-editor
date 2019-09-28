@@ -4,5 +4,14 @@
   "main": "index.js",
   "repository": "git@gitlab.com:lollipop.onl/directory-tree-editor.git",
   "author": "tamuraryoya <tamuraryoya@team-lab.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@team-lab/eslint-config": "^0.1.1",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.4.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "typescript": "^3.6.3"
+  }
 }
