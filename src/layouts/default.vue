@@ -1,14 +1,32 @@
 <template lang="pug">
 .default-layout
-  nuxt
+  TheNavbar(
+    :version="version"
+  )
+  .content
+    nuxt
+  TheFooter
 </template>
 
 <script lang="ts">
 import { bind, debounce } from 'helpful-decorators';
 import { Component, Vue } from 'nuxt-property-decorator';
+import { version } from '../../package.json';
+import TheNavbar from '@/components/TheNavbar.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
-@Component
+@Component({
+  components: {
+    TheNavbar,
+    TheFooter
+  }
+})
 export default class DefaultLayout extends Vue {
+  /** パッケージバージョン */
+  get version() {
+    return version;
+  }
+
   /** ライフサイクル */
   beforeMount(): void {
     this.updateVh();
@@ -41,7 +59,12 @@ export default class DefaultLayout extends Vue {
 <style lang="sass" scoped>
 .default-layout
   &
+    display: flex
+    flex-direction: column
     min-height: 100vh
     min-height: calc(var(--vh, 1vh) * 100)
     overflow: hidden
+
+  & > .content
+    flex-grow: 1
 </style>
