@@ -5,13 +5,28 @@
   "repository": "git@gitlab.com:lollipop.onl/directory-tree-editor.git",
   "author": "tamuraryoya <tamuraryoya@team-lab.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nuxt-ts dev",
+    "build": "nuxt-ts generate"
+  },
   "devDependencies": {
+    "@nuxt/typescript-runtime": "^0.1.7",
     "@team-lab/eslint-config": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^6.4.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.0",
     "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "@nuxt/typescript-build": "^0.2.10",
+    "node-sass": "^4.12.0",
+    "nuxt": "^2.9.2",
+    "nuxt-property-decorator": "^2.4.0",
+    "pug": "^2.0.4",
+    "reset.css": "^2.0.2"
   }
 }
