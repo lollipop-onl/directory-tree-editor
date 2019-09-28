@@ -12,7 +12,6 @@
     )
     app-editor.editor(
       v-model="treeValue"
-      readonly
       ref="preview"
       :scrollTop.sync="localScrollTop"
       :placeholder="C.PREVIEW_PLACEHOLDER"
@@ -131,9 +130,15 @@ export default class IndexPage extends Vue {
     border-right: 16px solid $_base
     border-left: 16px solid $_base
 
+    @media (max-width: 730px)
+      flex-direction: column
+
   & > .content > .editor
     flex-grow: 1
 
   & > .content > .editor:not(:first-child)
     border-left: 4px solid $_base
+
+    @media (max-width: 730px)
+      border-left: none
 </style>
