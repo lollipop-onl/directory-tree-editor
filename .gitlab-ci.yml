@@ -1,0 +1,13 @@
+image: node:10
+
+pages:
+  stage: deploy
+  before_script:
+    - npm i
+  script:
+    - npm run buid
+    - mkdir public
+    - mv dist/* public
+  artifacts:
+    paths:
+      - public
