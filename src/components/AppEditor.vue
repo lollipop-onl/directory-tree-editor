@@ -1,19 +1,30 @@
 <template lang="pug">
 textarea.field(
-  @keydown="onKeyDown"
+  ref="textarea"
   v-model="localValue"
+  @keydown="onKeyDown"
+  @scroll="onScroll"
 )
 </template>
 
 <script lang="ts">
 import keycode from 'keycode';
-import { Component, Model, Vue } from 'nuxt-property-decorator';
+import { Component, Model, Watch, Vue } from 'nuxt-property-decorator';
+import { PropSync, Ref } from 'vue-property-decorator';
 
 @Component
 export default class AppEditor extends Vue {
+  /** スクロール位置 */
+  @PropSync('scrollTop', { type: Number, required: true })
+  localScrollTop!: number;
+
   /** 入力値 */
   @Model('input', { type: String, required: true })
   value!: string;
+
+  /** textarea */
+  @Ref('textarea')
+  textarea?: HTMLTextAreaElement;
 
   /** ローカルの入力値 */
   get localValue() {
@@ -24,7 +35,23 @@ export default class AppEditor extends Vue {
     this.$emit('input', value);
   }
 
-  /** キーが押されたときの処理 */
+  /**
+   * スクロール位置が変わったとき
+   */
+  @Watch('localScrollTop', { immediate: true })
+  onChangeScrollTop(): void {
+    const { textarea } = this;
+
+    if (!textarea) {
+      return;
+    }
+
+    textarea.scrollTo({ top: this.localScrollTop });
+  }
+
+  /**
+   * キーが押されたときの処理
+   */
   async onKeyDown(e: any): Promise<void> {
     if (!keycode.isEventKey(e, 'tab')) {
       return;
@@ -69,6 +96,16 @@ export default class AppEditor extends Vue {
 
     target.setSelectionRange(selectionStart, selectionEnd);
   }
+
+  /**
+   * スクロールされたときの処理
+   */
+  onScroll(e: any): void {
+    const { target } = e as { target: HTMLTextAreaElement };
+    const { scrollTop } = target;
+
+    this.localScrollTop = scrollTop;
+  }
 }
 </script>
 
@@ -78,7 +115,7 @@ export default class AppEditor extends Vue {
     box-sizing: border-box
     padding: 30px
     font-family: Fira Code, monospace
-    font-size: 18px
+    font-size: 14px
     line-height: 1.5
     resize: none
 </style>

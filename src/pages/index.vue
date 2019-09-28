@@ -2,10 +2,12 @@
 .page-content
   app-editor.editor(
     v-model="sourceValue"
+    :scrollTop.sync="localScrollTop"
   )
   app-editor.editor(
     readonly
     v-model="treeValue"
+    :scrollTop.sync="localScrollTop"
   )
 </template>
 
@@ -22,6 +24,8 @@ import { parseDirectoryTree } from '@/utils/tree';
 export default class IndexPage extends Vue {
   /** ソースコード */
   sourceValue = '';
+  /** スクロール位置 */
+  scrollTop = 0;
 
   /** 変換された値 */
   get treeValue() {
@@ -30,6 +34,15 @@ export default class IndexPage extends Vue {
 
   set treeValue(value: string) {
     this.sourceValue = value;
+  }
+
+  /** ローカルのスクロール位置 */
+  get localScrollTop() {
+    return this.scrollTop
+  }
+
+  set localScrollTop(scrollTop: number) {
+    this.scrollTop = scrollTop;
   }
 }
 </script>

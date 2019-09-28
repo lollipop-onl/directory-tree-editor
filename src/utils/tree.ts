@@ -8,38 +8,6 @@ const countIndent = (source: string): number => {
   return matches ? matches.length : 0;
 }
 
-const mapTreeDepth = (lines: string[], arr: any[]): any[] => {
-  return lines.map((line, i) => {
-    const value = line.replace(/^(?: |\t)+/, '');
-    const depths = countIndent(line);
-    let indent = '';
-
-    for (let j = 1; j <= depths; j++) {
-      let minIndent = Infinity;
-
-      for (let k = i + 1; k < lines.length; k++) {
-        const line = lines[k];
-
-        const indent = countIndent(line);
-
-        if (indent < j) {
-          break;
-        }
-
-        minIndent = Math.min(minIndent, indent);
-      }
-
-      if (j === depths && !/^#/.test(value)) {
-        indent += minIndent <= j ? '├──' : '└──';
-      } else {
-        indent += minIndent <= j ? '│  ' : '   ';
-      }
-    }
-
-    return `${indent}${value}`;
-  });
-}
-
 /**
  * ディレクトリのツリー構造に変換する関数
  */
@@ -68,9 +36,9 @@ export const parseDirectoryTree = (source: string): string => {
         }
 
         if (j === depths && !/^#/.test(value)) {
-          indent += minIndent <= j ? '├──' : '└──';
+          indent += minIndent <= j ? '├── ' : '└── ';
         } else {
-          indent += minIndent <= j ? '│  ' : '   ';
+          indent += minIndent <= j ? '│   ' : '    ';
         }
       }
 
