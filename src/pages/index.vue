@@ -1,11 +1,18 @@
 <template lang="pug">
-h1 hello world
+div
+  TheNavbar
+  h1 hello world
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
+import TheNavbar from '@/components/TheNavbar.vue';
 
-@Component
+@Component({
+  components: {
+    TheNavbar
+  }
+})
 export default class IndexPage extends Vue {
 }
 </script>
