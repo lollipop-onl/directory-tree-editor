@@ -6,25 +6,25 @@ import { indentToDirTree } from '@/utils/parser';
 
 const EDITOR_PLACEHOLDER = `.
   # Assets files
-  assets
-    images
-    css
-    fonts
+  /assets
+    /images
+    /css
+    /fonts
   # Vue components
-  components
-    Atoms
-    Molecules
-    Organisms
+  /components
+    /Atoms
+    /Molecules
+    /Organisms
   # Page components
-  containers
+  /containers
     ...
   # Utilities
-  utils
+  /utils
     # Entry file
     index.ts
     ...
   # Node.js packages
-  node_modules
+  /node_modules
   # Node.js configuration file
   package.json
   # Documentation (this file)
