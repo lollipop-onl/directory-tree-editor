@@ -10,25 +10,25 @@ import{r as S,p as B,g as D,o as G,d as w,w as J,a as k,c as $,k as M,b as _,e a
 `)),await e(),t.value.setSelectionRange(p+x+C,m+x+C);return}};return J(()=>n.scrollPosition,l=>{t.value&&t.value.scrollTop!==l&&t.value.scrollTo({top:l})},{immediate:!0}),(l,d)=>(k(),$("textarea",{ref_key:"textarea",ref:t,value:n.value,class:"resize-none scroll-p-8 overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none",wrap:"off",spellcheck:"false",placeholder:n.placeholder,readonly:n.readOnly,onScroll:r,onInput:a,onKeydown:c},null,40,se))}}),P=i=>{var o;return Math.floor((((o=/^ +/.exec(i))==null?void 0:o[0].length)||0)/2)},L=i=>{const o=i.split(/\n|\r\n/);return o.map((n,t)=>{const e=n.replace(/^(?: |\t)+/,""),s=P(n);let r="";for(let a=1;a<=s;a++){let c=1/0;for(let l=t+1;l<o.length;l++){const d=o[l],v=P(d);if(v<a)break;c=Math.min(c,v)}a===s&&!/^#/.test(e)?r+=c<=a?"\u251C\u2500\u2500 ":"\u2514\u2500\u2500 ":r+=c<=a?"\u2502   ":"    "}return`${r}${e}`}).join(`
 `)},ne={class:"grid min-h-full grid-rows-2 gap-2 overflow-y-auto text-white md:grid-cols-2 md:grid-rows-1"},le=w({setup(i){const o=`.
   # Assets files
-  assets
-    images
-    css
-    fonts
+  /assets
+    /images
+    /css
+    /fonts
   # Vue components
-  components
-    Atoms
-    Molecules
-    Organisms
+  /components
+    /Atoms
+    /Molecules
+    /Organisms
   # Page components
-  containers
+  /containers
     ...
   # Utilities
-  utils
+  /utils
     # Entry file
     index.ts
     ...
   # Node.js packages
-  node_modules
+  /node_modules
   # Node.js configuration file
   package.json
   # Documentation (this file)
