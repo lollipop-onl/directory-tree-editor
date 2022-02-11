@@ -1,0 +1,16 @@
+{
+  "name": "directory-tree-editor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lollipop-onl/directory-tree-editor.git",
+  "author": "lollipop-onl <lollipop@simochee.net>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "vite": "^2.8.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "vue": "^3.2.30"
+  }
+}
