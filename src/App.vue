@@ -3,5 +3,5 @@ const name = 'simochee';
 </script>
 
 <template>
-  <h1 class="mt-4">Hello, {{ name }}</h1>
+  <h1 class="mt-4 bg-red-100">Hello, {{ name }}</h1>
 </template>
