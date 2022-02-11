@@ -30,7 +30,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="grid min-h-full grid-cols-2 gap-1 overflow-y-auto text-white md:grid-cols-2 md:grid-rows-1"
+    class="grid min-h-full grid-rows-2 gap-1 overflow-y-auto text-white md:grid-cols-2 md:grid-rows-1"
   >
     <AppEditorTextarea
       v-model:value="value"
