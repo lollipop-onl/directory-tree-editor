@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const name = 'simochee';
+import AppTextArea from './components/AppTextArea.vue';
+
 const appVersion = `v${__APP_VERSION__}`;
 </script>
 
@@ -10,24 +11,33 @@ const appVersion = `v${__APP_VERSION__}`;
     </header>
     <main class="flex-grow">
       <div class="grid h-full grid-rows-2 gap-1 md:grid-cols-2 md:grid-rows-1">
-        <textarea class="h-full w-full resize-none bg-stone-100"></textarea>
-        <textarea
-          class="h-full w-full resize-none bg-stone-100"
-          readonly
-        ></textarea>
+        <AppTextArea />
+        <AppTextArea readonly />
       </div>
     </main>
-    <footer class="flex items-center justify-between p-2 leading-none">
-      <span class="font-mono">
-        <span class="mr-1 text-[10px] text-gray-400">powered by</span>
+    <footer class="relative p-2 leading-none">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-[10px]">
+          <span class="mr-1 inline-block text-gray-400">powered by</span>
+          <a
+            class="text-gray-300 hover:text-gray-100"
+            href="https://twitter.com/lollipop_onl"
+            target="_blank"
+            >@lollipop_onl
+          </a>
+        </span>
         <a
-          class="text-xs text-gray-300 hover:text-gray-100"
-          href="https://twitter.com/lollipop_onl"
-          target="_blank"
-          >@lollipop_onl</a
-        ></span
+          class="font-mono text-xs text-gray-400 hover:text-gray-100"
+          href="https://github.com/lollipop-onl/directory-tree-editor"
+        >
+          {{ appVersion }}
+        </a>
+      </div>
+      <p
+        class="mt-1 text-center text-[10px] text-stone-400 md:absolute md:top-1/2 md:left-1/2 md:mt-0 md:-translate-x-1/2 md:-translate-y-1/2"
       >
-      <span class="font-mono text-xs text-gray-400">{{ appVersion }}</span>
+        このサイトでは改善のため Google Analytics を導入しています
+      </p>
     </footer>
   </div>
 </template>
