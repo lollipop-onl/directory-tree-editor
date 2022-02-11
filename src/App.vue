@@ -1,21 +1,23 @@
 <script lang="ts" setup>
-import AppTextArea from './components/AppTextArea.vue';
+import AppEditor from '@/components/AppEditor.vue';
 
 const appVersion = `v${__APP_VERSION__}`;
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col bg-stone-900 px-4 md:px-6">
-    <header class="flex h-16 items-center md:px-1">
+  <div
+    class="flex h-full w-full flex-col overflow-hidden bg-stone-900 px-4 md:px-6"
+  >
+    <header class="flex h-16 flex-shrink-0 items-center md:px-1">
       <img class="h-5" src="@/assets/logo.svg" alt="DirectoryTree Editor" />
     </header>
     <main class="flex-grow">
-      <div class="grid h-full grid-rows-2 gap-1 md:grid-cols-2 md:grid-rows-1">
-        <AppTextArea />
-        <AppTextArea readonly />
-      </div>
+      <AppEditor />
+      <div
+        class="grid h-full grid-rows-2 gap-1 md:grid-cols-2 md:grid-rows-1"
+      ></div>
     </main>
-    <footer class="relative p-2 leading-none">
+    <footer class="relative flex-shrink-0 p-2 leading-none">
       <div class="flex items-center justify-between">
         <span class="font-mono text-[10px]">
           <span class="mr-1 inline-block text-gray-400">powered by</span>

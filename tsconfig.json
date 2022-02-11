@@ -4,7 +4,7 @@
     "isolatedModules": false,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "@/*": ["src/*"]
     },
     "types": ["node"]
   }
