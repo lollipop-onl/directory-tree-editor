@@ -7,6 +7,7 @@ type Props = {
   value: string;
   scrollPosition: number;
   readOnly?: boolean;
+  placeholder?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -106,8 +107,6 @@ const onKeyDown = async (e: KeyboardEvent): Promise<void> => {
     const currentIndents = getIndents(value.split('\n')[lineIndex]);
     const shiftingIndents = indents - currentIndents;
 
-    console.log({ indents, currentIndents, shiftingIndents });
-
     if (shiftingIndents === 0) return;
 
     const lines = value.split('\n').map((line, index) => {
@@ -151,6 +150,7 @@ watch(
     v-model="props.value"
     class="resize-none overflow-scroll font-mono text-black outline-none"
     wrap="off"
+    :placeholder="props.placeholder"
     :readonly="props.readOnly"
     @scroll="onScroll"
     @input="onInput"
