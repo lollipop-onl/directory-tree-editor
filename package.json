@@ -7,6 +7,9 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1",
     "vite": "^2.8.0"
   },
   "devDependencies": {
@@ -15,5 +18,14 @@
   },
   "volta": {
     "node": "16.14.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier \"**/*.{vue,ts,css,json,yml}\""
+  },
+  "lint-staged": {
+    "*.{vue,ts,css,json,yml}": [
+      "yarn format --write"
+    ]
   }
 }
