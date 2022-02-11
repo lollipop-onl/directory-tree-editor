@@ -12,5 +12,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
     "vue": "^3.2.30"
+  },
+  "volta": {
+    "node": "16.14.0"
   }
 }
