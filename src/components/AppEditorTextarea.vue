@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { defineProps, withDefaults, defineEmits, ref, watch } from 'vue';
 import keycode from 'keycode';
-import { resolve } from 'path/posix';
 
 type Props = {
   value: string;
@@ -147,9 +146,10 @@ watch(
 <template>
   <textarea
     ref="textarea"
-    v-model="props.value"
-    class="resize-none overflow-scroll font-mono text-black outline-none"
+    :value="props.value"
+    class="resize-none overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none"
     wrap="off"
+    spellcheck="false"
     :placeholder="props.placeholder"
     :readonly="props.readOnly"
     @scroll="onScroll"

@@ -1,31 +1,23 @@
 <script lang="ts" setup>
-import { onMounted, ref, defineProps, withDefaults } from 'vue';
+import { ref, computed } from 'vue';
+import { useStore } from '@/composables/useStore';
 import AppEditorTextarea from '@/components/AppEditorTextarea.vue';
+import { indentToDirTree } from '@/utils/parser';
 
-type Props = {
-  readOnly?: boolean;
-};
+const store = useStore();
 
-const props = withDefaults(defineProps<Props>(), {
-  readOnly: false,
-});
-
-const value = ref('');
 const scrollPosition = ref(0);
 
-const handleKeyDown = (e: KeyboardEvent) => {
-  if (props.readOnly) return;
-};
-
-const onInput = (e: Event) => {
-  if (e.target instanceof HTMLDivElement) {
-    value.value = e.target.textContent || '';
-  }
-};
-
-onMounted(() => {
-  value.value = 'hello world.';
+const source = computed<string>({
+  get() {
+    return store.state.value;
+  },
+  set(value: string) {
+    store.commit(value);
+  },
 });
+
+const dirTree = computed(() => indentToDirTree(source.value));
 </script>
 
 <template>
@@ -33,11 +25,11 @@ onMounted(() => {
     class="grid min-h-full grid-rows-2 gap-1 overflow-y-auto text-white md:grid-cols-2 md:grid-rows-1"
   >
     <AppEditorTextarea
-      v-model:value="value"
+      v-model:value="source"
       v-model:scroll-position="scrollPosition"
     />
     <AppEditorTextarea
-      v-model:value="value"
+      :value="dirTree"
       v-model:scroll-position="scrollPosition"
       read-only
     />

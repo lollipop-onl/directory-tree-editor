@@ -20,7 +20,7 @@ const appVersion = `v${__APP_VERSION__}`;
     <footer class="relative flex-shrink-0 p-2 leading-none">
       <div class="flex items-center justify-between">
         <span class="font-mono text-[10px]">
-          <span class="mr-1 inline-block text-gray-400">powered by</span>
+          <span class="mr-1 inline-block text-gray-400">by</span>
           <a
             class="text-gray-300 hover:text-gray-100"
             href="https://twitter.com/lollipop_onl"
@@ -31,6 +31,7 @@ const appVersion = `v${__APP_VERSION__}`;
         <a
           class="font-mono text-xs text-gray-400 hover:text-gray-100"
           href="https://github.com/lollipop-onl/directory-tree-editor"
+          target="_blank"
         >
           {{ appVersion }}
         </a>
