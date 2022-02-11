@@ -4,9 +4,12 @@ import AppButton from '@/components/AppButton.vue';
 
 type Props = {
   data: string;
+  disabled?: boolean;
 };
 
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
+});
 
 const copied = ref(false);
 
@@ -26,7 +29,7 @@ const onClick = async (): Promise<void> => {
 </script>
 
 <template>
-  <AppButton :active="copied" @click="onClick">
+  <AppButton :active="copied" :disabled="props.disabled" @click="onClick">
     <span class="relative block">
       <span
         class="absolute inset-1/2 block h-full w-full -translate-x-1/2 -translate-y-1/2 bg-stone-900 opacity-0 transition"

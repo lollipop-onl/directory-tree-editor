@@ -27,6 +27,8 @@ const serializedDirTree = computed(() =>
       .join('\n')
   )
 );
+
+const isSourceEmpty = computed(() => store.state.value.trim().length === 0);
 </script>
 
 <template>
@@ -39,10 +41,12 @@ const serializedDirTree = computed(() =>
         src="@/assets/logo.svg"
         alt="DirectoryTree Editor"
       />
-      <AppCopyButton :data="serializedUrl">Copy URL</AppCopyButton>
-      <AppCopyButton :data="serializedDirTree"
-        >Copy DirectoryTree</AppCopyButton
-      >
+      <AppCopyButton :data="serializedUrl" :disabled="isSourceEmpty">
+        Copy URL
+      </AppCopyButton>
+      <AppCopyButton :data="serializedDirTree" :disabled="isSourceEmpty">
+        Copy DirectoryTree
+      </AppCopyButton>
     </header>
     <main class="flex-grow">
       <AppEditor />
