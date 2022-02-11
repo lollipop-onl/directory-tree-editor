@@ -15,5 +15,5 @@ by [lollipop.onl](https://twitter.com/lollipop_onl)
 ```sh
 yarn dev
 #> vite
-#>
+#> Local: http://localhost:3000/
 ```

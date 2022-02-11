@@ -26,10 +26,10 @@
     "prepare": "husky install",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "format": "prettier \"**/*.{vue,ts,css,json,yml,md}\""
+    "format": "prettier \"**/*.{vue,ts,css,json,yml,html,md}\""
   },
   "lint-staged": {
-    "*.{vue,ts,css,json,yml,md}": [
+    "*.{vue,ts,css,json,yml,html,md}": [
       "yarn format --write"
     ]
   }
