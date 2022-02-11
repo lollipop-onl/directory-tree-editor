@@ -147,7 +147,7 @@ watch(
   <textarea
     ref="textarea"
     :value="props.value"
-    class="resize-none overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none"
+    class="resize-none scroll-p-8 overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none"
     wrap="off"
     spellcheck="false"
     :placeholder="props.placeholder"

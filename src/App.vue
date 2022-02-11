@@ -1,15 +1,48 @@
 <script lang="ts" setup>
 import AppEditor from '@/components/AppEditor.vue';
+import AppButton from '@/components/AppButton.vue';
+import AppCopyButton from '@/components/AppCopyButton.vue';
+import { useStore } from '@/composables/useStore';
+import { indentToDirTree } from '@/utils/parser';
+import { computed } from 'vue';
 
-const appVersion = `v${__APP_VERSION__}`;
+const APP_VERSION = `v${__APP_VERSION__}`;
+
+const store = useStore();
+
+const serializedUrl = computed(() => {
+  const { origin, hash } = window.location;
+  const url = new URL('/', origin);
+
+  url.hash = hash;
+
+  return url.toString();
+});
+
+const serializedDirTree = computed(() =>
+  indentToDirTree(
+    store.state.value
+      .split('\n')
+      .filter((line) => line.trim())
+      .join('\n')
+  )
+);
 </script>
 
 <template>
   <div
     class="flex h-full w-full flex-col overflow-hidden bg-stone-900 px-4 md:px-6"
   >
-    <header class="flex h-16 flex-shrink-0 items-center md:px-1">
-      <img class="h-5" src="@/assets/logo.svg" alt="DirectoryTree Editor" />
+    <header class="flex h-16 flex-shrink-0 items-center space-x-3 md:px-2">
+      <img
+        class="mr-auto h-5"
+        src="@/assets/logo.svg"
+        alt="DirectoryTree Editor"
+      />
+      <AppCopyButton :data="serializedUrl">Copy URL</AppCopyButton>
+      <AppCopyButton :data="serializedDirTree"
+        >Copy DirectoryTree</AppCopyButton
+      >
     </header>
     <main class="flex-grow">
       <AppEditor />
@@ -33,7 +66,7 @@ const appVersion = `v${__APP_VERSION__}`;
           href="https://github.com/lollipop-onl/directory-tree-editor"
           target="_blank"
         >
-          {{ appVersion }}
+          {{ APP_VERSION }}
         </a>
       </div>
       <p

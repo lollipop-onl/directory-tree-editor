@@ -1,0 +1,25 @@
+<script lang="ts" setup>
+import { defineProps, withDefaults, defineEmits } from 'vue';
+
+type Props = {
+  active?: boolean;
+};
+
+const props = withDefaults(defineProps<Props>(), {
+  active: false,
+});
+
+const emit = defineEmits<{
+  (e: 'click'): void;
+}>();
+</script>
+
+<template>
+  <button
+    class="rounded-md border border-stone-400 px-2 py-1 font-mono text-xs text-stone-400 transition hover:border-stone-100 hover:text-stone-100"
+    :class="{ 'border-stone-100 text-stone-100': props.active }"
+    @click.prevent="emit('click')"
+  >
+    <slot />
+  </button>
+</template>
