@@ -20,7 +20,7 @@ export const useStore = () => {
       const encoded = window.location.hash.replace(/^#/, '').trim();
       const decoded = Base64.toUint8Array(encoded);
 
-      return pako.inflate(decoded, { to: 'string' });
+      return pako.inflate(decoded, { to: 'string' }) || '';
     } catch {
       return '';
     }
