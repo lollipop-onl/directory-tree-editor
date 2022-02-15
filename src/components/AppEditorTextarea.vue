@@ -144,16 +144,36 @@ watch(
 </script>
 
 <template>
-  <textarea
-    ref="textarea"
-    :value="props.value"
-    class="resize-none scroll-p-8 overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none"
-    wrap="off"
-    spellcheck="false"
-    :placeholder="props.placeholder"
-    :readonly="props.readOnly"
-    @scroll="onScroll"
-    @input="onInput"
-    @keydown="onKeyDown"
-  ></textarea>
+  <div class="relative h-full w-full">
+    <textarea
+      ref="textarea"
+      :value="props.value"
+      class="h-full w-full resize-none overflow-scroll py-5 px-8 font-mono text-sm leading-relaxed text-black outline-none"
+      wrap="off"
+      spellcheck="false"
+      placeholder=" "
+      :readonly="props.readOnly"
+      @scroll="onScroll"
+      @input="onInput"
+      @keydown="onKeyDown"
+    >
+    </textarea>
+    <p
+      class="pointer-events-none absolute inset-0 z-10 h-full w-full overflow-hidden whitespace-pre-wrap py-5 px-8 font-mono text-sm leading-relaxed text-gray-400"
+      aria-hidden="true"
+    >
+      {{ props.placeholder }}
+    </p>
+  </div>
 </template>
+
+<style scoped>
+/* 改行を伴う placeholder 対応のための疑似 placeholder 実装 */
+p {
+  display: none;
+}
+
+textarea:placeholder-shown + p {
+  display: block;
+}
+</style>
