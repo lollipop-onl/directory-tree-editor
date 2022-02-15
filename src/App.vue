@@ -35,16 +35,24 @@ const isSourceEmpty = computed(() => store.state.value.trim().length === 0);
   <div
     class="flex h-full w-full flex-col overflow-hidden bg-stone-900 px-4 md:px-6"
   >
-    <header class="flex h-16 flex-shrink-0 items-center space-x-3 md:px-2">
-      <img
-        class="mr-auto h-5"
-        src="@/assets/logo.svg"
-        alt="DirectoryTree Editor"
-      />
-      <AppCopyButton :data="serializedUrl" :disabled="isSourceEmpty">
+    <header
+      class="flex flex-shrink-0 flex-wrap items-center space-y-2 space-x-3 py-4 md:h-16 md:flex-nowrap md:py-0 md:px-2"
+    >
+      <div class="flex w-full items-center justify-center md:mr-auto md:w-auto">
+        <img class="h-5" src="@/assets/logo.svg" alt="DirectoryTree Editor" />
+      </div>
+      <AppCopyButton
+        class="flex-grow md:flex-grow-0"
+        :data="serializedUrl"
+        :disabled="isSourceEmpty"
+      >
         Copy URL
       </AppCopyButton>
-      <AppCopyButton :data="serializedDirTree" :disabled="isSourceEmpty">
+      <AppCopyButton
+        class="flex-grow md:flex-grow-0"
+        :data="serializedDirTree"
+        :disabled="isSourceEmpty"
+      >
         Copy DirectoryTree
       </AppCopyButton>
     </header>
